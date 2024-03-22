@@ -2,6 +2,7 @@
 import axios from 'axios';
 import Apply from "../models/apply.model.js";
 import User from "../models/user.model.js";
+import Balance from '../models/balance.model.js';
 class FileInfo {
   constructor(filename, path) {
     this.filename = filename;
@@ -109,6 +110,7 @@ export  const updateNoteAndStatus = async (req, res) => {
 
     // Find the apply document by ID
     const apply = await Apply.findById(id);
+    const balance = await Balance.findOne();
 
     // If the apply document doesn't exist, return an error
     if (!apply) {
@@ -133,7 +135,7 @@ export  const updateNoteAndStatus = async (req, res) => {
     }
 
     // Add 130 to the user's balance
-    user.balance += 130;
+    user.balance += balance.nidBalance;
 
     // Save the updated user document
     await user.save();
