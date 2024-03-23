@@ -12,7 +12,6 @@ const Navbar = () => {
         fetch('/api/users/userInfo')
             .then((response) => response.json())
             .then((data) => {
-                console.log(data.user);
                 setData(data.user);
                 setBalance(data.user.balance);
             })
@@ -36,6 +35,14 @@ const Navbar = () => {
                                 সার্ভার কপি</button></Link></li>
                             <li><Link to="/nid-order"><button className=" w-full mx-5 my-2">
                                 NID কপি</button></Link></li>
+                            <li><Link to="/birthday-registration"><button className="w-full mx-5 my-2">
+                                    জন্ম নিবন্ধন</button></Link></li>
+                            <li><Link to="/tin"><button className="w-full mx-5 my-2">
+                                    টিন</button></Link></li>
+                            <li><Link to="/bio"><button className="w-full mx-5 my-2">
+                                    বায়োমেট্রিক</button></Link></li>
+                            <li><Link to="/roshid"><button className="w-full mx-5 my-2">
+                                    রশিদ</button></Link></li>
                             <li><Link to="/recharge"><button className=" w-full mx-5 my-2">
                                 রিচার্জ</button></Link></li>
                             <li><Link to="/my-order"><button className=" w-full mx-5 my-2">
@@ -55,6 +62,8 @@ const Navbar = () => {
                                     All User</button></Link></li>
                             <li><Link to="/update-balance"><button className="w-full mx-5 my-2">
                                     Update Balance</button></Link></li>
+                            <li><Link to="/notice"><button className="w-full mx-5 my-2">
+                                    Update Notice</button></Link></li>
                             <li><Link to="/signup"><button className="w-full mx-5 my-2">
                                 Add Account</button></Link></li>
                             

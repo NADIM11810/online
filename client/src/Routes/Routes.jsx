@@ -22,6 +22,10 @@ import AdminRoutes from "./AdminRoutes";
 import AllUser from "../Pages/AllUser/AllUser";
 import BalanceForm from "../Pages/BalanceForm/BalanceForm";
 import ServerCopyV2 from "../Pages/ServerCopyV2/ServerCopyV2";
+import Roshid from "../Pages/Roshid/Roshid";
+import BirthRegistrationForm from "../Pages/BirthRegistrationForm/BirthRegistrationForm";
+import Tin from "../Pages/Tin/Tin";
+import Bio from "../Pages/Bio/Bio";
 
 
  export const router = createBrowserRouter([
@@ -100,6 +104,22 @@ import ServerCopyV2 from "../Pages/ServerCopyV2/ServerCopyV2";
         {
           path: "/server-copy-v2/:nid/:dob",
           element:<ServerCopyV2/> , 
+        },
+        {
+          path: "/roshid",
+          element:<Roshid/> , 
+        },
+        {
+          path: "/birthday-registration",
+          element:<BirthRegistrationForm/> , 
+        },
+        {
+          path: "/tin",
+          element:<Tin/> , 
+        },
+        {
+          path: "/bio",
+          element:<Bio/> , 
         },
         
       ],

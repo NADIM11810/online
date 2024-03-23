@@ -198,5 +198,100 @@ export const updateBalanceForNid= async (req, res) => {
     }
 };
 
+export const updateBalanceForBirth = async (req, res) => {
+    try {
+		const userId = req.user._id;
+        const balance = await Balance.findOne();
+        
+        // Find the user by userId
+        const user = await User.findById(userId);
+
+        if (!user) {
+            return res.status(404).json({ error: "User not found" });
+        }
+
+        const finalBalance = user.balance - balance.birthBalance;
+        // Update user's balance
+        user.balance = finalBalance;
+        await user.save();
+
+        res.status(200).json({ message: "Balance updated successfully", balance: user.balance });
+    } catch (error) {
+        console.log("Error in updateBalance controller", error.message);
+        res.status(500).json({ error: "Internal Server Error" });
+    }
+};
+
+export const updateBalanceForTin = async (req, res) => {
+    try {
+		const userId = req.user._id;
+        const balance = await Balance.findOne();
+        
+        // Find the user by userId
+        const user = await User.findById(userId);
+
+        if (!user) {
+            return res.status(404).json({ error: "User not found" });
+        }
+
+        const finalBalance = user.balance - balance.tinBalance;
+        // Update user's balance
+        user.balance = finalBalance;
+        await user.save();
+
+        res.status(200).json({ message: "Balance updated successfully", balance: user.balance });
+    } catch (error) {
+        console.log("Error in updateBalance controller", error.message);
+        res.status(500).json({ error: "Internal Server Error" });
+    }
+};
+
+export const updateBalanceForBio = async (req, res) => {
+    try {
+		const userId = req.user._id;
+        const balance = await Balance.findOne();
+        
+        // Find the user by userId
+        const user = await User.findById(userId);
+
+        if (!user) {
+            return res.status(404).json({ error: "User not found" });
+        }
+
+        const finalBalance = user.balance - balance.bioBalance;
+        // Update user's balance
+        user.balance = finalBalance;
+        await user.save();
+
+        res.status(200).json({ message: "Balance updated successfully", balance: user.balance });
+    } catch (error) {
+        console.log("Error in updateBalance controller", error.message);
+        res.status(500).json({ error: "Internal Server Error" });
+    }
+};
+
+export const updateBalanceForRoshid = async (req, res) => {
+    try {
+		const userId = req.user._id;
+        const balance = await Balance.findOne();
+        
+        // Find the user by userId
+        const user = await User.findById(userId);
+
+        if (!user) {
+            return res.status(404).json({ error: "User not found" });
+        }
+
+        const finalBalance = user.balance - balance.roshidBalance;
+        // Update user's balance
+        user.balance = finalBalance;
+        await user.save();
+
+        res.status(200).json({ message: "Balance updated successfully", balance: user.balance });
+    } catch (error) {
+        console.log("Error in updateBalance controller", error.message);
+        res.status(500).json({ error: "Internal Server Error" });
+    }
+};
 
 

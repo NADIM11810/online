@@ -27,7 +27,6 @@ const ServerCopyPrint = () => {
         return () => clearTimeout(timer); 
     }, []);
     
-
     const componentRef = useRef();
 
     const handlePrint = () => {

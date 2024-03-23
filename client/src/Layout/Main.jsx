@@ -20,12 +20,21 @@ const Main = () => {
                                     সার্ভার কপি</button></Link>
                                 <Link to="/nid-order"><button className="btn w-3/4 mx-5 my-2">
                                     NID কপি</button></Link>
+                                <Link to="/roshid"><button className="btn w-3/4 mx-5 my-2">
+                                    রশিদ</button></Link>
+                                <Link to="/bio"><button className="btn w-3/4 mx-5 my-2">
+                                    বায়োমেট্রিক</button></Link>
+                                <Link to="/tin"><button className="btn w-3/4 mx-5 my-2">
+                                    টিন</button></Link>
+                                <Link to="/birthday-registration"><button className="btn w-3/4 mx-5 my-2">
+                                    জন্ম নিবন্ধন</button></Link>
                                 <Link to="/recharge"><button className="btn w-3/4 mx-5 my-2">
                                     রিচার্জ</button></Link>
                                 <Link to="/my-order"><button className="btn w-3/4 mx-5 my-2">
                                     My Order</button></Link>
                                 <Link to="/my-recharge"><button className="btn w-3/4 mx-5 my-2">
                                     My Recharge</button></Link>
+
                                 <Link to="https://t.me/unofficial724"><button className="btn w-3/4 mx-5 my-2">
                                     টেলিগ্রাম</button></Link>
                             </>
@@ -36,6 +45,8 @@ const Main = () => {
                                     All Order</button></Link>
                                 <Link to="/all-recharge"><button className="btn w-3/4 mx-5 my-2">
                                     All Recharge</button></Link>
+                                <Link to="/notice"><button className="btn w-3/4 mx-5 my-2">
+                                    Update Notice</button></Link>
                                 <Link to="/all-user"><button className="btn w-3/4 mx-5 my-2">
                                     All User</button></Link>
                                 <Link to="/update-balance"><button className="btn w-3/4 mx-5 my-2">

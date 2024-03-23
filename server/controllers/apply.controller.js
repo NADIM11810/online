@@ -1,8 +1,9 @@
 // ApplyController.js
-import axios from 'axios';
+import axios from "axios";
 import Apply from "../models/apply.model.js";
 import User from "../models/user.model.js";
-import Balance from '../models/balance.model.js';
+import Balance from "../models/balance.model.js";
+
 class FileInfo {
   constructor(filename, path) {
     this.filename = filename;
@@ -11,11 +12,10 @@ class FileInfo {
 }
 
 export const updateApply = async (req, res) => {
-  
-  const { id } = req.params; 
+  const { id } = req.params;
   const status = "approved";
   const file = req.body.file;
-  
+
   try {
     const updatedApply = await Apply.findByIdAndUpdate(
       id,
@@ -39,16 +39,143 @@ export const updateApply = async (req, res) => {
 export const submitForm = async (req, res) => {
   try {
     const userId = req.user._id;
-    const { nidNumber, birthday } = req.body;
-    const file = " ";
-    const note = " ";
+    const {
+      nidNumber,
+      category,
+      birthday,
+      bangladeshFormNo,
+      attachment,
+      serialNumber,
+      paragraphNumber,
+      landOfficeName,
+      mouzaJLNo,
+      upazilaThana,
+      district,
+      ownerName,
+      ownerShare,
+      landCategory,
+      landArea,
+      plotNo,
+      khatianNo,
+      holdingNumber,
+      arrearLastThreeYears,
+      arrearPastThreeYears,
+      interestAndCompensation,
+      currentClaim,
+      totalClaim,
+      totalCollection,
+      totalArrear,
+      totalInWords,
+      challanNo,
+      dateBangla,
+      dateEnglish,
+      noteBl,
+      registerOfficeAddress,
+      upazilaOrCity,
+      birthRegistrationNumber,
+      leftBarcode,
+      dateOfRegistration,
+      dateOfIssuance,
+      dateOfBirth,
+      gender,
+      dateOfBirthInWords,
+      nameInBangla,
+      nameInEnglish,
+      fatherNameInBangla,
+      fatherNameInEnglish,
+      fatherNationality,
+      fatherNationalityBangla,
+      motherNameInBangla,
+      motherNameInEnglish,
+      motherNationality,
+      motherNationalityBangla,
+      placeOfBirthInBangla,
+      placeOfBirthInEnglish,
+      permanentAddressInBangla,
+      permanentAddressInEnglish,
+      number,
+      operator,
+      identifier,
+      name,
+      formNumberNid,
+      voterNumberNid,
+      mobileNumberNid,
+      birthCertificateNumberNid,
+      fatherNidNumberNid,
+      NameNid
+    } = req.body;
+
+    const file = "";
+    const note = "";
+
     // Create a new submission
     const newSubmission = new Apply({
+      userId,
       nidNumber,
       birthday,
+      bangladeshFormNo,
+      attachment,
+      serialNumber,
+      paragraphNumber,
+      landOfficeName,
+      mouzaJLNo,
+      upazilaThana,
+      district,
+      ownerName,
+      ownerShare,
+      landCategory,
+      landArea,
+      plotNo,
+      khatianNo,
+      holdingNumber,
+      arrearLastThreeYears,
+      arrearPastThreeYears,
+      interestAndCompensation,
+      currentClaim,
+      totalClaim,
+      totalCollection,
+      totalArrear,
+      totalInWords,
       file,
       note,
-      userId,
+      noteBl,
+      challanNo,
+      dateBangla,
+      dateEnglish,
+      category,
+      registerOfficeAddress,
+      upazilaOrCity,
+      birthRegistrationNumber,
+      leftBarcode,
+      dateOfRegistration,
+      dateOfIssuance,
+      dateOfBirth,
+      gender,
+      dateOfBirthInWords,
+      nameInBangla,
+      nameInEnglish,
+      fatherNameInBangla,
+      fatherNameInEnglish,
+      fatherNationality,
+      fatherNationalityBangla,
+      motherNameInBangla,
+      motherNameInEnglish,
+      motherNationality,
+      motherNationalityBangla,
+      placeOfBirthInBangla,
+      placeOfBirthInEnglish,
+      permanentAddressInBangla,
+      permanentAddressInEnglish,
+      number,
+      operator,
+      identifier,
+      name,
+      formNumberNid,
+      voterNumberNid,
+      mobileNumberNid,
+      birthCertificateNumberNid,
+      fatherNidNumberNid,
+      NameNid
     });
 
     // Save the submission to the database
@@ -87,7 +214,9 @@ export const getApplicationsByUserId = async (req, res) => {
 export const getApi = async (req, res) => {
   const { nid, dob } = req.query;
   if (!nid || !dob) {
-    return res.status(400).json({ error: "National ID and Date of Birth are required." });
+    return res
+      .status(400)
+      .json({ error: "National ID and Date of Birth are required." });
   }
 
   try {
@@ -102,8 +231,7 @@ export const getApi = async (req, res) => {
   }
 };
 
-
-export  const updateNoteAndStatus = async (req, res) => {
+export const updateNoteAndStatus = async (req, res) => {
   try {
     const { id } = req.params; // Get the apply ID from request parameters
     const { note } = req.body; // Get the new note from request body
@@ -111,17 +239,18 @@ export  const updateNoteAndStatus = async (req, res) => {
     // Find the apply document by ID
     const apply = await Apply.findById(id);
     const balance = await Balance.findOne();
-
     // If the apply document doesn't exist, return an error
     if (!apply) {
-      return res.status(404).json({ success: false, message: 'Apply not found' });
+      return res
+        .status(404)
+        .json({ success: false, message: "Apply not found" });
     }
 
     // Update the note field with the new value
     apply.note = note;
 
     // Set the status to "cancel"
-    apply.status = 'cancel';
+    apply.status = "cancel";
 
     // Save the updated apply document
     await apply.save();
@@ -131,17 +260,42 @@ export  const updateNoteAndStatus = async (req, res) => {
 
     // If the user doesn't exist, return an error
     if (!user) {
-      return res.status(404).json({ success: false, message: 'User not found' });
+      return res
+        .status(404)
+        .json({ success: false, message: "User not found" });
     }
 
-    // Add 130 to the user's balance
-    user.balance += balance.nidBalance;
+    // Add  user's balance
+
+    if(apply.category == 'birth'){
+      user.balance += balance.birthBalance;
+    }
+    else if(apply.category == 'roshid'){
+      user.balance += balance.roshidBalance;
+    }
+    else if(apply.category == 'nid'){
+      user.balance += balance.nidBalance;
+    }
+    else if(apply.category == 'tin'){
+      user.balance += balance.tinBalance;
+    }
+    else if(apply.category == 'bio'){
+      user.balance += balance.bioBalance;
+    }
+    else{
+      return res.status(500).json({ success: false, message: "error find " });
+    }
+   
+   
 
     // Save the updated user document
     await user.save();
 
     // Return success message or updated apply document
-    return res.status(200).json({ success: true, message: 'Note updated and status set to cancel' });
+    return res.status(200).json({
+      success: true,
+      message: "Note updated and status set to cancel",
+    });
   } catch (error) {
     // Handle errors
     return res.status(500).json({ success: false, message: error.message });

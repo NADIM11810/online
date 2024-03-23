@@ -46,3 +46,47 @@ export const updateServerBalance = async (req, res) => {
     res.status(500).json({ message: 'Internal Server Error' });
   }
 };
+
+export const updateBirthBalance = async (req, res) => {
+  try {
+    const { birthBalance } = req.body;
+    const balance = await Balance.findOneAndUpdate({}, { birthBalance }, { new: true });
+    res.json(balance);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+};
+
+export const updateTinBalance = async (req, res) => {
+  try {
+    const { tinBalance } = req.body;
+    const balance = await Balance.findOneAndUpdate({}, { tinBalance }, { new: true });
+    res.json(balance);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+};
+
+export const updateBioBalance = async (req, res) => {
+  try {
+    const { bioBalance } = req.body;
+    const balance = await Balance.findOneAndUpdate({}, { bioBalance }, { new: true });
+    res.json(balance);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+};
+
+export const updateRoshidBalance = async (req, res) => {
+  try {
+    const { roshidBalance } = req.body;
+    const balance = await Balance.findOneAndUpdate({}, { roshidBalance }, { new: true });
+    res.json(balance);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+};
