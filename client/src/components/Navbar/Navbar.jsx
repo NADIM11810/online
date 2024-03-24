@@ -42,7 +42,7 @@ const Navbar = () => {
                             <li><Link to="/bio"><button className="w-full mx-5 my-2">
                                     বায়োমেট্রিক</button></Link></li>
                             <li><Link to="/roshid"><button className="w-full mx-5 my-2">
-                                    রশিদ</button></Link></li>
+                                    ভূমি উন্নয়ন কর রসিদ</button></Link></li>
                             <li><Link to="/recharge"><button className=" w-full mx-5 my-2">
                                 রিচার্জ</button></Link></li>
                             <li><Link to="/my-order"><button className=" w-full mx-5 my-2">
@@ -50,7 +50,7 @@ const Navbar = () => {
                             <li><Link to="/my-recharge"><button className=" w-full mx-5 my-2">
                                 My Recharge</button></Link></li>
                             <li><Link to="https://t.me/unofficial724"><button className="w-full mx-5 my-2">
-                                টেলিগ্রাম</button></Link></li>
+                                Admin</button></Link></li>
                             </>}
                             {
                             authUser && authUser.role === 'admin' && <>
