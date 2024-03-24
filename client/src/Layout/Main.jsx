@@ -21,7 +21,7 @@ const Main = () => {
                                 <Link to="/nid-order"><button className="btn w-3/4 mx-5 my-2">
                                     NID কপি</button></Link>
                                 <Link to="/roshid"><button className="btn w-3/4 mx-5 my-2">
-                                    রশিদ</button></Link>
+                                    ভূমি উন্নয়ন কর রসিদ</button></Link>
                                 <Link to="/bio"><button className="btn w-3/4 mx-5 my-2">
                                     বায়োমেট্রিক</button></Link>
                                 <Link to="/tin"><button className="btn w-3/4 mx-5 my-2">
@@ -36,7 +36,7 @@ const Main = () => {
                                     My Recharge</button></Link>
 
                                 <Link to="https://t.me/unofficial724"><button className="btn w-3/4 mx-5 my-2">
-                                    টেলিগ্রাম</button></Link>
+                                    Admin</button></Link>
                             </>
                         }
                         {
